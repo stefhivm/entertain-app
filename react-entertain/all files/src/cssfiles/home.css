@@ -1,0 +1,53 @@
+body{
+    /*background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+   /* background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background: 
+    
+    linear-gradient(
+      rgba(255, 0, 0, 0.45), 
+      rgba(255, 0, 0, 0.45)
+    ),
+    
+    url(./../assets/images/bg0.jpg);
+    background-position: left;
+  
+}
+.mar{
+    margin-left: 20px;
+    margin-right: 20px;
+    color:rgb(42, 42, 43);
+}
+.uploadhead{
+    font-size: 30px;
+    color: aliceblue;
+}
+.outerdiv{
+    background-color: white;
+    opacity: 0.6;
+    width:50%;
+    margin: auto;
+    height:500px
+
+}
+.white{
+    color: white;
+}
+p{
+    color: white;
+    opacity: 0.6;
+}
+.uploadimage{
+    height:50px;
+    width: 50px;
+}
+.accountname{
+    margin-top: 200px;
+    font-size: 70px;
+}
+.logos{
+    color:rgb(230, 160, 160);
+    font-size: 25px;
+    font-weight: 400;
+    margin-left: 57px;
+    
+}
