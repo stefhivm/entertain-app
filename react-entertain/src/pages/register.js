@@ -1,32 +1,61 @@
 import './../cssfiles/register.css'
 import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link} from 'react-router-dom';
+import axios from 'axios';
+
+
+
 function Register(){
-    const [data, setData] = useState({});
+    const [data, setData] = useState({
+        request:'stefhi_user_register',
+        name:'',
+        email:'',
+        password:''
+    });
+
+    const [show,setShow]=useState('hide');
+    console.log(data);
     const navigate=useNavigate()
 
     const handleInput=(e,key)=>{
         setData({...data,[key]:e.target.value})}
 
+    const validation=()=>  {
+        if((data.name||data.email||data.password)===''){
+           setShow('show');
+           
+        }
+        else{
+            setShow('hide');
+              getStatus();
+        }
+    } 
+
         const getStatus=()=> {fetch(`https://karka.academy/api/action.php?request=user_register&name=${data.name}&email=${data.email}&password=${data.password}`)
         .then((response)=>response.json())
-        .then((response)=>{let datas=response.status;
+        .then((res)=>{let datas=res.status;
             if(datas==='success'){
-                navigate('/')
+                navigate('/');
             }
-            console.log(datas);
+           console.log(res.status);
              })}
+
+    //    const getStatus=()=>{axios.get('https://karka.academy/api/action.php',data)
+    //                        .then((response)=>console.log(response))};
     
         return (
             <div className="App">
             <div className="outer">
           <div className="inner">
-            <form>
+            <form  method="post">
                 <h3>Register</h3>
+
+               
 
                 <div className="form-group">
                     <label>Name</label>
-                    <input type="text" className="form-control" placeholder="Enter Name" onChange={(e)=>handleInput(e,'name')} />
+                    <input type="text" name="fname" className="form-control" placeholder="Enter Name" onChange={(e)=>handleInput(e,'name')} required />
+                  
                 </div>
 
                
@@ -40,9 +69,11 @@ function Register(){
                     <input type="password" className="form-control" placeholder="Enter password" onChange={(e)=>handleInput(e,'password')}/>
                 </div>
 
-                <button type="button" className="btn btn-danger btn-lg btn-block btn-register" onClick={getStatus}>Register</button>
+                <button type="button" value="Submit" className="btn btn-danger btn-lg btn-block btn-register" onClick={validation}>Register</button>
+                {show ==='show'? <p className="text-center valid">Fill all field</p>:<p></p>} {console.log(show)}
+                
                 <p className="forgot-password text-right">
-                    Already registered <a href="/">log in?</a>
+                    Already registered <Link to="/">log in?</Link>
                 </p>
             </form>
             </div>
