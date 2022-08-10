@@ -31,7 +31,7 @@ function App() {
              
               <Route path="/sign-up" element={<Register />} />
               <Route path="/" element={<SignUp />}></Route>
-            {localStorage.getItem('useDetails') || <Route path="/home" element={<Home />}></Route> }
+             <Route path="/home" element={<Home />}/>
               <Route path='/upload' element={<UploadForm/>}/>
               <Route path='/music' element={<Musicplayer/>}/>
               <Route path='/card' element={<Card/>}/>

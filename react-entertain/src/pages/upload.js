@@ -2,31 +2,57 @@ import React,{ useState } from 'react'
 import './../cssfiles/home.css'
 import Sidebar from '../components/sidebar';
 import Navbar from '../components/navbar';
+import axios from 'axios';
+import {useDispatch,useSelector} from 'react-redux';
+import {videoAction} from '../redux/videoSlice'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 function UploadForm(){
+ const navigate=useNavigate();
+  const dispatch = useDispatch();
 
-    const [upload,setUpload]=useState({});
+    const data = useSelector((state)=>state.user);
+
+    const Uploaddata = async() => {
+      let status = await dispatch(videoAction(upload))
+    
+      if(status)
+      {navigate('/home')}
+      else{navigate('/upload')}
+    }
+
+      
+     
+
+
+    const [upload,setUpload]=useState({
+    token:localStorage.getItem('token'),
+    request:'stefhi_video_upload',
+     video_id:'',
+     content:'',
+     category:'',
+     user_id:localStorage.getItem('id') 
+    });
+
 
     const handleInput=(e,key)=>{
-        setUpload({...upload,[key]:e.target.value})
-       } 
+        
+        if(key == 'video_id' ){
+          var video_id = e.target.value.split('v=')[1];
+          setUpload({...upload,[key]:video_id})
+        }
+        else{
+          setUpload({...upload,[key]:e.target.value})
+        }
+    } 
 
     const handleOption=(e,key)=>{
+     
         setUpload({...upload,[key]:e.target.value})
        } 
-         
 
-    const handleImage=(event,key)=>{
-      setUpload({...upload,[key]:URL.createObjectURL(event.target.files[0])});
-    }    
-
-    console.log(upload);  
-
-    const Uploaddata=()=>{fetch(`https://karka.academy/api/action.php?request=upload_video&url=${upload.url}&content=${upload.content}&category=${upload.category}&image=${upload.image}`)
-  .then((response)=>response.json())}   
-
-
+    //  console.log(upload);  
     return(
         <>
         <Navbar/>
@@ -37,10 +63,8 @@ function UploadForm(){
             <p>.</p>
   <div className="form-group mar ">
     <label for="exampleInputEmail1">Video URL</label>
-    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Url" onChange={(e)=>handleInput(e,'url')}/>
-    {/* <video width="750" height="500" controls >
-      <source src={`${upload.url}`} type="video/mp4"/>
-     </video> */}
+    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Url" onChange={(e)=>handleInput(e,'video_id')}/>
+    
   </div>
 
   <div className="form-group mar">
@@ -64,11 +88,7 @@ function UploadForm(){
 
  
 
-  <div className="form-group mar">
-    <label for="exampleInputPassword1">Thumbnail</label>
-    <input type="file" className="form-control-file" onChange={(e)=>handleImage(e,'image')}/>
-    <div className='mt-2'><img className='uploadimage' src={`${upload.image}`}></img></div>
-  </div>
+ 
   
   <button type="button" className="btn btn-danger mar" onClick={Uploaddata}>Upload</button>
 

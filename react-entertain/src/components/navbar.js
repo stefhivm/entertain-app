@@ -14,6 +14,12 @@ function Navbar(){
            left: 0,
            transform: 'translate3d(10px, 70px, 0px)'
             }
+
+    // const Logout=()=>{
+    //         localStorage.clear();
+    //         navigate('/');  
+    //                  } 
+
     return(<>
         
         
@@ -40,7 +46,7 @@ function Navbar(){
                              </a>
                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                              <li><Link class="dropdown-item" to="/account"><i class="fa-solid fa-user"></i> My Account</Link></li>
-                              <li><Link class="dropdown-item" to="/"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</Link></li>
+                              <li><Link class="dropdown-item" to='/'><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</Link></li>
                              
                                </ul>
                              </div>

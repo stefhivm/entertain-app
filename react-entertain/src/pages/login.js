@@ -3,46 +3,44 @@ import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
+import {useDispatch,useSelector} from 'react-redux'
+import {setValue,loginAction} from '../redux/userSlice'
 
 function SignUp(){
 const navigate=useNavigate()
+const dispatch = useDispatch();
+
+    const data = useSelector((state)=>state.user);
     
-    const [login, setLogin] = useState({
-      request:'stefhi_login',
+    // const [login, setLogin] = useState({
+    //   request:'stefhi_login',
+    //   email:'',
+    //   password:''
+    // });
+
+    const [loginCredential,setLoginCredential] = useState({
+      request:"stefhi_login",
       email:'',
-      password:''
-    });
+      password: ''
+  })
+  
+
+    const getLogin = async() => {
+      let status = await dispatch(loginAction(loginCredential))
+
+      if(status){
+        navigate('/account')
+      }
+    }
+
 
     const handleInput=(e,key)=>{
-        setLogin({...login,[key]:e.target.value})}
-
-        console.log(login);
-
-        // const getLogin=()=> {fetch(`https://karka.academy/api/action.php?request=stefhi_login&email=${login.email}&password=${login.password}`)
-        // .then((response)=>response.json())
-        // .then((response)=>{let datas=response.status;
-        //   let dataa=response.data;
-        //   console.log(dataa);
-            
-        //       if(datas == 'success'){
-        //         localStorage.setItem('userDetails',JSON.stringify(dataa))
-        //         navigate('/account')
-        //     }else{
-        //       alert('invalid password or email')
-        //     }
-            
-            
-        //     console.log(datas);
-        //      })}
-
-        const getLogin=()=>{axios.get('https://karka.academy/api/action.php',login)
-                           .then((response)=>console.log(response))};
-    
-        return (
+        setLoginCredential({...loginCredential,[key]:e.target.value})}
+    return (
           <div className="App">
             <div className="outer">
           <div className="inner">
-          <form>
+          <form >
             <h3>Sign In</h3>
             <div className="mb-3 mar-bo">
               <label>Email address</label>
@@ -53,7 +51,7 @@ const navigate=useNavigate()
                 onChange={(e)=>handleInput(e,'email')}
               />
             </div>
-            <div className="mt-3 mb-5 mar-bo">
+            <div className="mt-3 mb-4 mar-bo">
               <label>Password</label>
               <input
                 type="password"
@@ -64,18 +62,7 @@ const navigate=useNavigate()
 
               />
             </div>
-            {/* <div className="mb-3">
-              <div className="custom-control custom-checkbox">
-                <input
-                  type="checkbox"
-                  className="custom-control-input"
-                  id="customCheck1"
-                />
-                <label className="custom-control-label" htmlFor="customCheck1">
-                  Remember me
-                </label>
-              </div>
-            </div> */}
+            
             <div className="d-grid">
             <button type="button" className="btn btn-danger btn-lg btn-block btn-register" onClick={getLogin} >Submit</button>
             </div>

@@ -1,11 +1,24 @@
 import './../cssfiles/home.css'
 import {useNavigate} from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux';
+
+import {getUserDetails} from '../redux/userSlice'
 
 function Account(){
 
-   const navigate=useNavigate(); 
+  const navigate=useNavigate(); 
 
-   let userDetails = JSON.parse(localStorage.getItem('userDetails'))
+  const dispatch = useDispatch();
+
+  const data = useSelector((state)=>state.user);
+
+    let getUserId = localStorage.getItem('id');
+
+    if(!data.userDetails.id && getUserId){
+      dispatch(getUserDetails())
+    }
+
+   
     return(
         
 <header>
@@ -59,7 +72,7 @@ function Account(){
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-7 d-flex justify-content-center flex-column">
-          <h1 class="text-white mb-4 accountname">Welcome {userDetails.name}</h1>
+          <h1 class="text-white mb-4 accountname">Welcome {data.userDetails.name}</h1>
           <p class="text-white opacity-8 lead pe-5 me-5">The time is now for it be okay to be great. People in this world shun people for being nice. </p>
           <div class="buttons">
             <button type="button" onClick={()=>(navigate('/home'))} class="btn btn-danger mt-4">Get Started</button>
