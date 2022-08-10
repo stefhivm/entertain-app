@@ -15,7 +15,7 @@ function Register(){
 
     const [show,setShow]=useState('hide');
 
-    console.log(data);
+    
     const navigate=useNavigate()
 
     const handleInput=(e,key)=>{
@@ -46,7 +46,7 @@ function Register(){
         //      })}
 
        const getStatus=()=>{axios.post('https://karka.academy/api/',JSON.stringify(data))
-                           .then((response)=>{console.log(response.data.status);
+                           .then((response)=>{
                            if(response.data.status==="success"){
                             navigate('/');
                            }
