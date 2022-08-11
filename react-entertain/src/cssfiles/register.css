@@ -85,11 +85,14 @@
     margin-left: 100px;
   }
   .searchs{
-    margin-left: 300px;
+    
   }
   .cd{
     background-color: rgb(247, 196, 202);
   }
   .btnmargin{
     margin-left:667px;
+  }
+  .valid{
+    color:red;
   }
