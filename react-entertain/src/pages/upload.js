@@ -74,7 +74,7 @@ function UploadForm(){
 
   <div className="form-group mar">
     <label for="example-select">Category </label>
-    {/* <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Enter category" onChange={(e)=>handleInput(e,'category')}/> */}
+    
     
                 <select class=" form-control mb-3" id="example-select" onChange={(e)=>handleOption(e,'category')} >
                   <option value="1">Select category </option>
