@@ -28,6 +28,7 @@ function Home(){
      id:'',
      user_id:localStorage.getItem('id') 
     });
+    console.log(update)
 
    const handleInput=(e,key)=>{
         
@@ -45,7 +46,7 @@ const handleOption=(e,key)=>{
     setUpdate({...update,[key]:e.target.value})
    } 
 
-   const videoUpdate=()=>{console.log(update);}
+   const videoUpdate=()=>{}
 
     useEffect(()=> async() => {
         
@@ -106,7 +107,7 @@ const handleOption=(e,key)=>{
                           </div></li>
                           <li><div class="mb-3 register-div">
                             <label for="exampleFormControlInput1" class="form-label">Content</label>
-                            <input type="text" class="form-control" name="startdate" id="pillstartdate" onChange={(e)=>handleInput(e,'content')} placeholder="Content" required/>
+                            <input type="text" class="form-control" name="startdate" id="pillstartdate" onChange={(e)=>{handleInput(e,'content');}} placeholder="Content" required/>
                           </div></li>
                           <li><div class="mb-3 register-div">
                             <label for="example-select" class="form-label">Category</label>
