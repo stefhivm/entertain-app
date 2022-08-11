@@ -3,9 +3,13 @@ import './../assets/css/app.min.css'
 import './../cssfiles/register.css';
 import avatar from './../assets/images/users/avatar-1.jpg'
 import {useNavigate,Link} from 'react-router-dom';
-
+import {useDispatch,useSelector} from 'react-redux'
+import {setUserDetails} from '../redux/userSlice'
 
 function Navbar(){
+
+    const data = useSelector((state)=>state.user);
+    const dispatch=useDispatch();
     const navigate=useNavigate();
 
     const styles={position: 'absolute',
@@ -15,10 +19,21 @@ function Navbar(){
            transform: 'translate3d(10px, 70px, 0px)'
             }
 
-    // const Logout=()=>{
-    //         localStorage.clear();
-    //         navigate('/');  
-    //                  } 
+    const Logout=(e)=>{
+            e.preventDefault();
+            
+            localStorage.setItem('id','');
+            localStorage.setItem('name','');
+            localStorage.setItem('email','');
+            localStorage.setItem('token','');
+            dispatch(setUserDetails( {
+                id:'',
+                email:'',
+                name:'',
+                token:''
+            }))
+    } 
+                     
 
     return(<>
         
@@ -46,7 +61,7 @@ function Navbar(){
                              </a>
                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                              <li><Link class="dropdown-item" to="/account"><i class="fa-solid fa-user"></i> My Account</Link></li>
-                              <li><Link class="dropdown-item" to='/'><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</Link></li>
+                              <li><a class="dropdown-item" onClick={(e)=>Logout(e)}><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
                              
                                </ul>
                              </div>

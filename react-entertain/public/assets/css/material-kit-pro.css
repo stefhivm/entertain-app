@@ -36880,9 +36880,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
 }
 
 /* Edit Task */
-ul li input[type=text] {
-  display: none;
-}
+
 
 ul li.editMode input[type=text] {
   display: block;

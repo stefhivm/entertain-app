@@ -1,7 +1,7 @@
 import './../cssfiles/home.css'
 import {useNavigate} from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
-
+import {setUserDetails} from '../redux/userSlice'
 import {getUserDetails} from '../redux/userSlice'
 
 function Account(){
@@ -12,11 +12,21 @@ function Account(){
 
   const data = useSelector((state)=>state.user);
 
-    let getUserId = localStorage.getItem('id');
+  const logout=(e)=>{
+    e.preventDefault();
+    localStorage.setItem('id','');
+    localStorage.setItem('name','');
+    localStorage.setItem('email','');
+    localStorage.setItem('token','');
+    dispatch(setUserDetails( {
+        id:'',
+        email:'',
+        name:'',
+        token:''
+    }))
+} 
 
-    if(!data.userDetails.id && getUserId){
-      dispatch(getUserDetails())
-    }
+    
 
    
     return(
@@ -48,19 +58,10 @@ function Account(){
         </ul>
 
         <ul class="nav navbar-nav">
-          {/* <li class="nav-item">
-            <a class="nav-link text-white" href="https://twitter.com/CreativeTim">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
+         
           <li class="nav-item">
-            <a class="nav-link text-white mx-2" href="https://www.facebook.com/CreativeTim">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li> */}
-          <li class="nav-item">
-            <a class="nav-link text-white" href="https://www.instagram.com/CreativeTimOfficial">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            <a class="nav-link text-white" onClick={(e)=>logout(e)}>
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
             </a>
           </li>
         </ul>

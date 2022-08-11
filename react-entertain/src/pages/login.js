@@ -12,12 +12,7 @@ const dispatch = useDispatch();
 
     const data = useSelector((state)=>state.user);
     
-    // const [login, setLogin] = useState({
-    //   request:'stefhi_login',
-    //   email:'',
-    //   password:''
-    // });
-
+    
     const [loginCredential,setLoginCredential] = useState({
       request:"stefhi_login",
       email:'',
@@ -28,9 +23,7 @@ const dispatch = useDispatch();
     const getLogin = async() => {
       let status = await dispatch(loginAction(loginCredential))
 
-      if(status){
-        navigate('/account')
-      }
+      
     }
 
 

@@ -4,10 +4,10 @@ import axios from 'axios';
 const initialState = {
     value : 0,
     userDetails : {
-        id:null,
-        email:null,
-        name:null,
-        token:null
+        id: '',
+        email:'',
+        name:'',
+        token:''
     }
 };
 
@@ -66,7 +66,7 @@ export const getUserDetails = () => async (dispatch) =>{
             email:localStorage.getItem('email'),
             name:localStorage.getItem('name'),
             token:localStorage.getItem('token')
-        }))
+      }))
 
       
 }
