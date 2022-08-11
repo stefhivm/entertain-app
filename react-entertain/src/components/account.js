@@ -2,7 +2,7 @@ import './../cssfiles/home.css'
 import {useNavigate} from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import {setUserDetails} from '../redux/userSlice'
-import {getUserDetails} from '../redux/userSlice'
+
 
 function Account(){
 
@@ -74,10 +74,10 @@ function Account(){
       <div class="row">
         <div class="col-lg-6 col-md-7 d-flex justify-content-center flex-column">
           <h1 class="text-white mb-4 accountname">Welcome {data.userDetails.name}</h1>
-          <p class="text-white opacity-8 lead pe-5 me-5">The time is now for it be okay to be great. People in this world shun people for being nice. </p>
+          <p class="text-white opacity-8 lead pe-5 me-5">Entertainment is a sacred pursuit when done well. When done well, it raises the quality of human life. </p>
           <div class="buttons">
             <button type="button" onClick={()=>(navigate('/home'))} class="btn btn-danger mt-4">Get Started</button>
-            {/* <button type="button" class="btn text-white shadow-none mt-4">Read more</button> */}
+            
           </div>
         </div>
       </div>
