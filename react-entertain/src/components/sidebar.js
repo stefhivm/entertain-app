@@ -67,7 +67,7 @@ function Sidebar(){
                 
 
                     <div class="clearfix"></div>
-                    <button onClick={()=>navigate('/music')} className='btn btn-danger mt-5 ml-3 mr-3'><div className='music '> <img src={require('./../assets/images/icons8-music-32.png')}></img>    Switch to Music Player</div></button>
+                    <a href="/music" className='btn btn-danger mt-5 ml-3 mr-3'><div className='music '> <img src={require('./../assets/images/icons8-music-32.png')}></img>    Switch to Music Player</div></a>
                 </div>
             
 

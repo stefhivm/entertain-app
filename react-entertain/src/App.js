@@ -43,11 +43,11 @@ function App() {
             <Routes>
              
               <Route path="/sign-up" element={<Register />} />
-              <Route exact path="/" element={email == '' ? <SignUp />: <Navigate to="/account"/>}></Route>
-              <Route path="/home" element={email != '' || email ? <Home /> : <Navigate to="/"/> }/>
-              <Route path='/upload' element={email != '' || email ? <UploadForm /> : <Navigate to="/" />}/>
-              <Route path='/music' element={email != '' || email ? <Musicplayer /> : <Navigate to="/" />}/>
-              <Route path='/account' element={email != '' || email? <Account/> : <Navigate to="/" />}/>
+              <Route exact path="/" element={localStorage.getItem('email') == '' ? <SignUp />: <Navigate to="/account"/>}></Route>
+              <Route path="/home" element={localStorage.getItem('email') != '' || email ? <Home /> : <Navigate to="/"/> }/>
+              <Route path='/upload' element={localStorage.getItem('email') != '' || email ? <UploadForm /> : <Navigate to="/" />}/>
+              <Route path='/music' element={localStorage.getItem('email') != '' || email ? <Musicplayer /> : <Navigate to="/" />}/>
+              <Route path='/account' element={localStorage.getItem('email') != '' || email? <Account/> : <Navigate to="/" />}/>
               
             </Routes>
     </Router>
