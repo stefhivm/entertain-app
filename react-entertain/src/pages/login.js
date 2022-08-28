@@ -1,6 +1,6 @@
 import './../cssfiles/register.css';
 import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
 import {useDispatch,useSelector} from 'react-redux'
@@ -60,7 +60,7 @@ const dispatch = useDispatch();
             <button type="button" className="btn btn-danger btn-lg btn-block btn-register" onClick={getLogin} >Submit</button>
             </div>
             <p className="forgot-password text-right">
-              Don't have an account? <a href="/sign-up">Sign-up</a>
+              Don't have an account? <Link to="/sign-up">Sign-up</Link>
             </p>
           </form>
           </div>

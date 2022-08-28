@@ -2,7 +2,6 @@ import './../cssfiles/home.css'
 import {useNavigate} from 'react-router-dom'
 import Sidebar from '../components/sidebar';
 import Navbar from '../components/navbar';
-import Card from '../components/card'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { setvideoUpdate, videoUpdateAction } from '../redux/updateSlice';
@@ -54,7 +53,7 @@ const handleOption=(e,key)=>{
    } 
 
    
-
+console.log(update);
     const videoUpdate = async(id)=>{
       
      
@@ -89,13 +88,13 @@ const videoDelete = async(id)=>{
     <Navbar/>
     <div className='row videorow'>
     {video && video.map((v,k) =>
-    <div className='col-4'>
-    <div class="card searchs mt-3" style={{width: 18 +"rem"}}>
+    <div className='col-3'>
+    <div class="card searchs mt-3" style={{width: 18.5 +"rem"}}>
 
 
 
 <a  data-toggle="modal"  data-target={`#exampleModalCenter${k}`}>
-<img src={(`https://i3.ytimg.com/vi/${v.video_id}/maxresdefault.jpg`)}  style={{width:288,height:164}}/>
+<img className='thumbnail' src={(`https://i3.ytimg.com/vi/${v.video_id}/maxresdefault.jpg`)}  style={{width:297,height:164}}/>
 </a>
 
 
@@ -116,31 +115,32 @@ const videoDelete = async(id)=>{
         <button type="button" class="btn btn-danger" data-dismiss="modal">Like</button>
         <button type="button" class="btn btn-danger">Share</button>
       </div> */}
-    </div>
-  </div>
-</div>
-<div className='text-center mt-2 textstyle'>{v.content}</div>
+
 {localStorage.getItem('id')===v.user_id?
 <>
 
-<div class="dropdown">
-                        <button class="btn right" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded>
-                        <i class="fa-solid fa-pen white"></i>
+<div class="dropdown ">
+                        <button class="btn btn-danger arrange"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded>
+                        <i class="fa-solid fa-pen "></i>
                         </button>
+
+                        {localStorage.getItem('id')===v.user_id?<div class="ib"><button class="btn btn-danger" data-inline="true" onClick={()=>videoDelete(v.id)} type="button" >
+                     <i class="fa-solid fa-trash "></i>
+                        </button></div>:<p></p>}
                         
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
                           <li><div class="form-group mar">
                           <label for="exampleInputEmail1">Video URL</label>
-                          <input type="text" className="form-control"  aria-describedby="emailHelp" placeholder="Enter Url" onChange={(e)=>handleInput(e,'video_id', v.id )}/>
+                        <input type="text" className="form-control"  aria-describedby="emailHelp" placeholder="Enter Url"  onChange={(e)=>handleInput(e,'video_id', v.id )}/>
                           </div></li>
                           <li><div class=" form-group mar">
-                            <label for="exampleFormControlInput1" class="form-label">Content</label>
-                            <input type="text" class="form-control" name="startdate"  onChange={(e)=>{handleInput(e,'content','');}} placeholder="Content" required></input>
+                            <label class="form-label">Content</label>
+                            <input type="text" class="form-control"  placeholder="Content"  onChange={(e)=>{handleInput(e,'content','');}}/>
                           </div></li>
                           <li><div class="mar form-group">
                             <label for="example-select" class="form-label">Category</label>
                             <select class=" form-control mb-3" id="example-select"  onChange={(e)=>handleOption(e,'category')} >
-                            <option value="1">Select category </option>
+                            <option defaultValue={v.category}>Select Category </option>
                             <option value="cartoon">Cartoon</option>
                             <option value="sports">Sports</option>
                             <option value="thriller">Thriller</option>
@@ -149,19 +149,20 @@ const videoDelete = async(id)=>{
                             </select>
                           </div></li>
                             
-                          <li><div class="add-button"><button type="button"  class="btn btn-danger" onClick={()=>videoUpdate(v.id)}>Save</button></div></li>
+                          <li><div class="add-button"><button type="button"  class="btn btn-danger" onClick={()=>videoUpdate(v.id)}><i class="fa-solid fa-check"></i></button></div></li>
                         </ul>
                       
                       </div>
  </>:<p></p>}
 
+    </div>
+  </div>
+</div>
 
-
-{localStorage.getItem('id')===v.user_id?<button class="btn rights" onClick={()=>videoDelete(v.id)} type="button" >
-                     <i class="fa-solid fa-trash white"></i>
-                        </button>:<p></p>}
 
  </div>
+<div className='text-justify white  textstyle'>{v.content}</div>
+
  </div>)}
 </div>
     

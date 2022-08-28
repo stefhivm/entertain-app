@@ -7,7 +7,6 @@ import Home from './pages/home'
 import Navbar from './components/navbar'
 import {UploadForm} from './pages/upload'
 import Musicplayer from './pages/musicpage';
-import Card from './components/card';
 import Account from './components/account';
 import {useSelector,useDispatch} from 'react-redux'
 import {getUserDetails} from './redux/userSlice'

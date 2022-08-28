@@ -7,7 +7,7 @@ function Sidebar(){
     return(<>
     
     <div class="left-side-menu bg-color">
-        <div className='logos mt-2 '>Myamuse</div>
+        <div className='logos mt-2 '>MyAmuse</div>
 
                 <div class="slimscroll-menu" id="left-side-menu-container">
 

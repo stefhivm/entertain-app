@@ -90,7 +90,7 @@ function UploadForm(){
 
  
   
-  <button type="button" className="btn btn-danger mar" onClick={Uploaddata}>Upload</button>
+  <button type="button" className="btn btn-danger mar" style={{marginLeft:645}} onClick={Uploaddata}>Upload</button>
 
 </form>
 </div>
