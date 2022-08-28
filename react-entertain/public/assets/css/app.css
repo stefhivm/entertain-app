@@ -8130,7 +8130,7 @@ body {
   min-height: 80vh; }
 
 .left-side-menu {
-  width: 250px;
+  width: 238px !important;
   z-index: 10;
   background: #A71F30 !important;
   bottom: 0;

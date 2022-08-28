@@ -173,9 +173,9 @@ pre {
 figure {
   margin: 0 0 1rem; }
 
-img {
-  vertical-align: middle;
-  border-style: none; }
+.thumbnail:hover {
+ opacity: 0.5 !important; 
+}
 
 svg {
   overflow: hidden;
@@ -8130,7 +8130,7 @@ body {
   min-height: 80vh; }
 
 .left-side-menu {
-  width: 250px;
+  width: 238px !important;
   z-index: 10;
   background: #A71F30 !important;
   bottom: 0;
@@ -8459,7 +8459,7 @@ body[data-layout="detached"] {
           box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
   margin: -5px -20px 0;
   min-height: 70px;
-margin-left: 250px !important; }
+margin-left: 236px !important; }
   .navbar-custom .topbar-left {
     background-color: #ffffff;
     height: 70px;
@@ -9118,7 +9118,8 @@ body[data-layout="detached"] .footer {
   border: none;
   -webkit-box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
           box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
-  margin-bottom: 30px; }
+  margin-bottom: 7px !important; }
+
   .card .header-title {
     margin-bottom: 0.5rem;
     text-transform: uppercase;

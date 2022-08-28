@@ -102,6 +102,7 @@ function Musicplayer() {
             "http://c2d.comorins.com/storage/XEvbuJz0hW59Xb5EdiJBfCy5upJpJsMZcpvBn2ta.png",
           expand: false,
         },
+        
   ]);
 
  useEffect(() => {
@@ -428,6 +429,8 @@ function Musicplayer() {
                           />
                           <span class="track-time-stamp">00:52</span>
                         </li>
+
+                        
                         <li class="align-self-center trackaddlastColumn">
                           <a class="trackadd-btn" data-trackname="On the beach">
                             Add
@@ -459,7 +462,11 @@ function Musicplayer() {
                           />
                           <span class="track-time-stamp">01:36</span>
                         </li>
-                        
+                        <li class="align-self-center trackaddlastColumn">
+                          <a class="trackadd-btn" data-trackname="On the beach">
+                            Add
+                          </a>
+                        </li>
                       </ul>
                     </li>
                   </ul>

@@ -44,12 +44,7 @@ function Navbar(){
                       
                               
 
-                             {/* <li class="dropdown notification-list">
-                                
-                                    <span class="account-user-avatar"> 
-                                        <button className='btn btn-danger mt-2 ml-1' onClick={()=>(navigate('/account'))}><i class="fa-solid fa-user"></i></button>
-                                    </span>
-                            </li> */}
+                            
 
                               <li class="dropdown notification-list">
                               <div class="dropdown">
@@ -71,7 +66,7 @@ function Navbar(){
                         <button class="button-menu-mobile open-left disable-btn">
                             <i class="mdi mdi-menu"></i>
                         </button>
-                        <div class="app-search">
+                        {/* <div class="app-search">
                             <form>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search..."/>
@@ -81,7 +76,7 @@ function Navbar(){
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> */}
                     </div>
     </>)
 
