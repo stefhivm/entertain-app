@@ -27,7 +27,7 @@ export const videoListAction = (list) => async (dispatch) =>{
     
    
     let response= await axios.post('https://karka.academy/api/',JSON.stringify(list));
-    console.log('uoload', response)
+    
     if(response.data.status==='success'){
          return response;
     }
