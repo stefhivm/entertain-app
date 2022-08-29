@@ -131,11 +131,11 @@ const videoDelete = async(id)=>{
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
                           <li><div class="form-group mar">
                           <label for="exampleInputEmail1">Video URL</label>
-                        <input type="text" className="form-control"  aria-describedby="emailHelp" placeholder="Enter Url"  onChange={(e)=>handleInput(e,'video_id', v.id )}/>
+                        <input type="text" className="form-control"  aria-describedby="emailHelp" placeholder="Enter Url" defaultValue={`www.youtube.com/watch?v=${v.video_id}`}  onChange={(e)=>handleInput(e,'video_id', v.id )}/>
                           </div></li>
                           <li><div class=" form-group mar">
                             <label class="form-label">Content</label>
-                            <input type="text" class="form-control"  placeholder="Content"  onChange={(e)=>{handleInput(e,'content','');}}/>
+                            <input type="text" class="form-control"  placeholder="Content" defaultValue={v.content} onChange={(e)=>{handleInput(e,'content','');}}/>
                           </div></li>
                           <li><div class="mar form-group">
                             <label for="example-select" class="form-label">Category</label>
